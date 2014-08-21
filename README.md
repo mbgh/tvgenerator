@@ -19,15 +19,16 @@ Prerequisites
 -------------
 
 The `TVGenerator` uses the
-[`StdLogicVector`](https://github.com/mbgh/stdlogicvector) in order to represent
-signal of arbitrary length and provide an easy to use conversion between number
-representations of several basis (decimal, binary, hexadecimal, etc.).
+[`StdLogicVector`](https://github.com/mbgh/stdlogicvector) class in order to
+represent signals of arbitrary length and to provide an easy to use conversion
+between number representations of several bases (decimal, binary, hexadecimal,
+etc.).
 
 Usage
 -----
 
 Personally, I usually use the `TVGenerator` as a dynamic library and link it
 against a certain *main* program, which uses it to generate the respective test
-vector file(s). This *main* program is usually a testing environment for a
-software model I have written for a certain hardware architecture I am going to
-design.
+vector file(s). This *main* program is most of the time a testing environment
+for a software model I have written for a certain hardware architecture I am
+going to design.
