@@ -1,0 +1,13 @@
+/*! \mainpage TVGenerator
+ *
+ * A test vector file generator for hardware designs.
+ *
+ * \section secIntro Introduction
+ *
+ * During the development of a hardware design, one usually has to build a test
+ * bench which in turn often requires a bunch of test vectors such as stimulis
+ * or expected responses in order to verify the design under test. This class is
+ * intended to simplify the generation of files containing such test vectors by
+ * providing an easy interface to the user.
+ *
+ */
