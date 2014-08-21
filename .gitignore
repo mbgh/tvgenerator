@@ -20,3 +20,6 @@
 *.out
 *.app
 /Debug
+
+# Doxygen-generated HTML documentation
+/doc/html
