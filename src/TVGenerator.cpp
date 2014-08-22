@@ -51,9 +51,8 @@ using namespace std;
  * @brief The default constructor creates a new TVGenerator per default using a
  *   single file for both stimuli and expected responses.
  */
-TVGenerator::TVGenerator() {
-  isSingleFileBased_ = true;
-  testVectorCount_   = 0;
+TVGenerator::TVGenerator() : isSingleFileBased_(true), testVectorCount_(0),
+		stimuliCount_(0), expRspCount_(0){
 }
 
 /**
@@ -116,6 +115,47 @@ void TVGenerator::WriteTVFileHeaderEntry(ofstream & _tvFile, TVFileSettings & _f
   const int prefixWidth = 10;
   _tvFile << _fileSettings.getCommentIndicator() << " " << _prefix <<
       string(prefixWidth - _prefix.length(), ' ') << _entry << endl;
+}
+
+/**
+ * @brief Writes the provided values for the given test vector setting to the
+ *   file.
+ * @param _tvFile The file stream to which the vectors should be written.
+ * @param _fileSettings The corresponding settings of the test vector file.
+ * @param _signalValues The values of the signals to be written to the test
+ *   vector file.
+ * @param _comment The comment which should be attached to the end of the test
+ *   vector file entry.
+ * @return 0 if successfully, otherwise an exception will be thrown.
+ */
+int TVGenerator::WriteTVLine(ofstream & _tvFile, TVFileSettings & _fileSettings,
+		vector<StdLogicVector> _signalValues, string _comment, int & _tvCount) {
+
+	// Check whether number of provided signal values matches the number of
+	// signal declarations set up during the initialization.
+	if (_signalValues.size() != _fileSettings.getTVDeclarations().size()) {
+		throw invalid_argument("Number of signal values does not match number of "
+				"determined signals during the signal declaration.");
+	}
+
+	for (size_t sig = 0; sig < _signalValues.size(); ++sig) {
+		string baseString = _signalValues[sig].ToString(
+				_fileSettings.getTVDeclarations()[sig].GetPrintBase(), true);
+		_tvFile << baseString;
+		if (sig != _signalValues.size() - 1) {
+			_tvFile << " ";
+		} else {
+			if (_fileSettings.isEnableLineEndComments() && !_comment.empty()) {
+				_tvFile << string(_fileSettings.getCommentSpaces(), ' ') <<
+						_fileSettings.getCommentIndicator() << " " << _comment;
+			}
+			_tvFile << endl;
+		}
+	}
+
+	_tvCount++;
+
+	return 0;
 }
 
 /**
@@ -225,31 +265,45 @@ int TVGenerator::WriteTestVectorLine(vector<StdLogicVector> _signalValues,
         "'WriteTestVectorLine' function but the "
         "'WriteStimuliLine/WriteExpectedResponseLine' functions.");
   }
-
-  if (_signalValues.size() != tvFileSettings_.getTVDeclarations().size()) {
-    throw invalid_argument("Number of signal values does not match number of "
-        "determined signals during the signal declaration.");
-  }
-
-  for (size_t sig = 0; sig < _signalValues.size(); ++sig) {
-    string baseString = _signalValues[sig].ToString(
-        tvFileSettings_.getTVDeclarations()[sig].GetPrintBase(), true);
-    tvFile_ << baseString;
-    if (sig != _signalValues.size() - 1) {
-      tvFile_ << " ";
-    } else {
-      if (tvFileSettings_.isEnableLineEndComments() && !_comment.empty()) {
-        tvFile_ << string(tvFileSettings_.getCommentSpaces(), ' ') <<
-            tvFileSettings_.getCommentIndicator() << " " << _comment;
-      }
-      tvFile_ << endl;
-    }
-  }
-
-  testVectorCount_++;
-
-  return 0;
+  return WriteTVLine(
+  			tvFile_, tvFileSettings_, _signalValues, _comment, testVectorCount_);
 }
+
+/**
+ * @brief Write a single stimuli to the stimuli file.
+ * @param _stimuliValues The values of the stimuli signals to be written.
+ * @param _comment The comment to be attached at the end of the stimuli line.
+ * @return 0 when successfully. Throws an exception otherwise.
+ */
+int TVGenerator::WriteStimuliLine(vector<StdLogicVector> & _stimuliValues,
+		string _comment) {
+	if ( isSingleFileBased_) {
+		throw logic_error("Bad function call: Test vector has been set up "
+				"for single file application. Hence, use the 'WriteTestVectorLine'"
+				"function instead of 'WriteStimuliLine/WriteExpRspLine'");
+	}
+	return WriteTVLine(
+			stimFile_, stimFileSettings_, _stimuliValues, _comment, stimuliCount_);
+}
+
+/**
+ * @brief Write an expected response to the expected responses file.
+ * @param _expRspValues The values of the expected response signals to be written.
+ * @param _comment The comment to be attached to the end of the expected response
+ *   file.
+ * @return 0 when successfully. Throws an exception otherwise.
+ */
+int TVGenerator::WriteExpRspLine(vector<StdLogicVector> & _expRspValues,
+		string _comment) {
+	if ( isSingleFileBased_) {
+		throw logic_error("Bad function call: Test vector has been set up "
+				"for single file application. Hence, use the 'WriteTestVectorLine'"
+				"function instead of 'WriteStimuliLine/WriteExpRspLine'");
+	}
+	return WriteTVLine(
+			expRspFile_, expRspFileSettings_, _expRspValues, _comment, expRspCount_);
+}
+
 
 /**
  * @brief Write an arbitrary line to the common test vector file.

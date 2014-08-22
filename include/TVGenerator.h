@@ -61,6 +61,8 @@ private:
 	// **************************************************************************
 	bool isSingleFileBased_;
 	int testVectorCount_;
+	int stimuliCount_;
+	int expRspCount_;
 	ofstream tvFile_;
 	ofstream stimFile_;
 	ofstream expRspFile_;
@@ -75,6 +77,8 @@ private:
 	void WriteTVFileHeader(ofstream & _tvFile, TVFileSettings & _fileSettings);
 	void WriteTVFileHeaderEntry(ofstream & _tvFile, TVFileSettings & _fileSettings,
 			string _prefix, string _entry);
+	int WriteTVLine(ofstream & _tvFile, TVFileSettings & _fileSettings,
+			vector<StdLogicVector> _signalValues, string _comment, int & _tvCount);
 	void WriteArbitraryTVLine(ofstream & _tvFile, TVFileSettings & _tvFileSettings,
 			string _line, string _comment);
 	void WriteTVCommentLine(ofstream & _tvFile, TVFileSettings & _tvFileSettings,
@@ -88,6 +92,13 @@ public:
 	virtual ~TVGenerator();
 
 	// **************************************************************************
+	// Getter/Setter
+	// **************************************************************************
+	int GetTVCount() const { return testVectorCount_; }
+	int GetStimuliCount() const { return stimuliCount_; }
+	int GetExpRspCount() const { return expRspCount_; }
+
+	// **************************************************************************
 	// Public methods
 	// **************************************************************************
 	void Initialize(TVFileSettings _tvFileSettings);
@@ -96,6 +107,8 @@ public:
 
 	int WriteTestVectorLine(vector<StdLogicVector> _signalValues,
 	    string _comment);
+	int WriteStimuliLine(vector<StdLogicVector> & _stimuliValues, string _comment);
+	int WriteExpRspLine(vector<StdLogicVector> & _expRspValues, string _comment);
 
 	void WriteArbitraryTVLine(string _line);
 	void WriteArbitraryTVLine(string _line, string _comment);
