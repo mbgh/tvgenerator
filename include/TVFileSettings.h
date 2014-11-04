@@ -57,9 +57,13 @@ private:
   string content_;              // Describes the content of the test vector file.
   string author_;               // Author of the test vector file.
   string commentIndicator_;     // String starting a comment.
-  int commentSpaces_;           // Spaces before line comment starts.
+  string columnIndicator_;      // String indicating the alignment of the signals to their corresponding caption (column).
+  int signalDistance_;          // Number of spaces between two testvectors.
+  int commentSpaces_;           // Number of spaces between the last signal and the line ending comment (if enabled).
   bool enableLineEndComments_;  // Enable/Disable comments at end of line.
   bool enablePreLineComments_;  // Enable/Disable comments right before line.
+  string commentsColumnHeader_;	// The string indicating a comment at the end of a line.
+  int signalCaptionInterval_;    // The interval after which the signal caption header is printed again.
 
   vector<SignalDeclaration> tvDeclarations_;
 
@@ -72,7 +76,7 @@ public:
       string _projectName);
   TVFileSettings(string _filePath, string _author, string _content,
       string _projectName, const string _commentIndicator,
-      const int _commentSpaces);
+      const string _columnIndicator, const int _commentSpaces);
   virtual ~TVFileSettings();
 
   // **************************************************************************
@@ -93,10 +97,16 @@ public:
   string getContent() const { return content_; };
   string getAuthor() const { return author_; };
   string getCommentIndicator() const { return commentIndicator_; };
+  string getColumnIndicator() const { return columnIndicator_; };
+  int getSignalDistance() const { return signalDistance_; };
   int getCommentSpaces() const { return commentSpaces_; };
   bool isEnableLineEndComments() const { return enableLineEndComments_; };
   bool isEnablePreLineComments() const { return enablePreLineComments_; };
+  string getCommentsColumnHeader() const { return commentsColumnHeader_; };
+  int getSignalCaptionInterval() const { return signalCaptionInterval_; };
+
   vector<SignalDeclaration> getTVDeclarations() const { return tvDeclarations_; };
+
 
   // **************************************************************************
   // Public methods

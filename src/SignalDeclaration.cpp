@@ -34,7 +34,8 @@
 /**
  * @brief Default constructor creates a "noname" signal with width 0.
  */
-SignalDeclaration::SignalDeclaration() : name(""), width(0), printBase(16) {
+SignalDeclaration::SignalDeclaration() : name(""), width(0), printBase(16),
+		appendWidthInCaption_(true){
 }
 
 /**
@@ -42,7 +43,8 @@ SignalDeclaration::SignalDeclaration() : name(""), width(0), printBase(16) {
  * @param _name Name of the signal.
  * @param _width Width of the signal in bits.
  */
-SignalDeclaration::SignalDeclaration(string _name, int _width) : printBase(16) {
+SignalDeclaration::SignalDeclaration(string _name, int _width) : printBase(16),
+		appendWidthInCaption_(true) {
   name  = _name;
   width = _width;
 }
@@ -52,10 +54,26 @@ SignalDeclaration::SignalDeclaration(string _name, int _width) : printBase(16) {
  * @param _printBase The number base in which the signal should be printed per
  *   default.
  */
-SignalDeclaration::SignalDeclaration(string _name, int _width, int _printBase) {
+SignalDeclaration::SignalDeclaration(string _name, int _width, int _printBase) :
+		appendWidthInCaption_(true)
+{
   name      = _name;
   width     = _width;
   printBase = _printBase;
+}
+
+/**
+ * @copydoc SignalDeclaration::SignalDeclaration(string _name, int _width, int _printBase)
+ * @param _appendWidthInCaption Determines whether the width of the signal should
+ *   be appending in the signal caption.
+ */
+SignalDeclaration::SignalDeclaration(const string _name, const int _width,
+		const int _printBase, const bool _appendWidthInCaption)
+{
+  name      						= _name;
+  width     						= _width;
+  printBase 						= _printBase;
+  appendWidthInCaption_ = _appendWidthInCaption;
 }
 
 /**

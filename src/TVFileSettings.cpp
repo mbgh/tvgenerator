@@ -43,8 +43,9 @@
  */
 TVFileSettings::TVFileSettings() :
 		filePath_(""), projectName_(""), content_(""), author_(""),
-    commentIndicator_("%"), commentSpaces_(1),
-    enableLineEndComments_(true), enablePreLineComments_(false) {
+    commentIndicator_("%"), columnIndicator_("|"), signalDistance_(1),
+    commentSpaces_(3), enableLineEndComments_(true), enablePreLineComments_(false),
+    commentsColumnHeader_("Comments"), signalCaptionInterval_(50) {
 }
 
 /**
@@ -57,8 +58,9 @@ TVFileSettings::TVFileSettings() :
  */
 TVFileSettings::TVFileSettings(string _filePath, string _author,
     string _content, string _projectName) :
-    commentIndicator_("%"), commentSpaces_(1),
-    enableLineEndComments_(true), enablePreLineComments_(false) {
+    commentIndicator_("%"), columnIndicator_("|"), signalDistance_(1),
+    commentSpaces_(3), enableLineEndComments_(true), enablePreLineComments_(false),
+    commentsColumnHeader_("Comments"), signalCaptionInterval_(50){
 
   filePath_     = _filePath;
   author_       = _author;
@@ -74,15 +76,17 @@ TVFileSettings::TVFileSettings(string _filePath, string _author,
  * @param _commentSpaces Number of spaces before the line ending comment.
  */
 TVFileSettings::TVFileSettings(string _filePath, string _author,
-    string _content, string _projectName, string _commentIndicator,
-    int _commentSpaces) :
-    enableLineEndComments_(true), enablePreLineComments_(false) {
+    string _content, string _projectName, const string _commentIndicator,
+    const string _columnIndicator, const int _commentSpaces) :
+    signalDistance_(1), enableLineEndComments_(true), enablePreLineComments_(false),
+    commentsColumnHeader_("Comments"), signalCaptionInterval_(50){
 
   filePath_         = _filePath;
   author_           = _author;
   content_          = _content;
   projectName_      = _projectName;
   commentIndicator_ = _commentIndicator;
+  columnIndicator_  = _columnIndicator;
   commentSpaces_    = _commentSpaces;
 }
 

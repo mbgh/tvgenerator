@@ -34,9 +34,11 @@
  */
 
 #include <string>
+#include <sstream>
 #include <fstream>
 #include <exception>
 #include <time.h>
+#include <math.h>
 
 #include "TVGenerator.h"
 #include "StdLogicVector.h"
@@ -102,7 +104,7 @@ void TVGenerator::WriteTVFileHeader(ofstream & _tvFile, TVFileSettings & _tvFile
   WriteTVFileHeaderEntry(_tvFile, _tvFileSettings, "Project:", _tvFileSettings.getProjectName());
   WriteTVFileHeaderEntry(_tvFile, _tvFileSettings, "Created:", buf);
   WriteTVFileHeaderEntry(_tvFile, _tvFileSettings, "Content:", _tvFileSettings.getContent());
-  _tvFile << _tvFileSettings.getCommentIndicator() << endl;
+  WriteSignalCaptions(_tvFile, _tvFileSettings);
 }
 
 /**
@@ -136,6 +138,12 @@ int TVGenerator::WriteTVLine(ofstream & _tvFile, TVFileSettings & _fileSettings,
 	if (_signalValues.size() != _fileSettings.getTVDeclarations().size()) {
 		throw invalid_argument("Number of signal values does not match number of "
 				"determined signals during the signal declaration.");
+	}
+
+	// Check whether signal caption should be repeated before writing the actual
+	// test vector entry.
+	if (_tvCount > 0 && _tvCount % _fileSettings.getSignalCaptionInterval() == 0) {
+		WriteSignalCaptions(_tvFile, _fileSettings);
 	}
 
 	for (size_t sig = 0; sig < _signalValues.size(); ++sig) {
@@ -189,6 +197,99 @@ void TVGenerator::WriteTVCommentLine(ofstream & _tvFile,
 		TVFileSettings & _tvFileSettings, string _comment) {
 	_tvFile << _tvFileSettings.getCommentIndicator() << " " << _comment << endl;
 }
+
+/**
+ * @brief Write the description of the signals into the test vector file.
+ * @param _tvFile The test vector file to which the signal caption should be
+ *   written.
+ * @param _tvFileSettings The corresponding test vector file settings.
+ */
+void TVGenerator::WriteSignalCaptions(ofstream & _tvFile, TVFileSettings & _tvFileSettings)
+{
+	const vector<SignalDeclaration> & sigDecls = _tvFileSettings.getTVDeclarations();
+
+	// Create an empty comment line in the test vector file.
+	_tvFile << _tvFileSettings.getCommentIndicator() << endl;
+
+	for (size_t i = 0; i < sigDecls.size(); ++i) {
+
+		// Create the string (signal caption), describing the next signal.
+		_tvFile << GeneratePreSignalCaptionString(_tvFileSettings, i);
+		_tvFile << sigDecls[i].GetName();
+
+		// If specified, append the width of the signal in the caption of the
+		// respective signal.
+		if (sigDecls[i].IsAppendWidthInCaption()) {
+			_tvFile << " (" << sigDecls[i].GetWidth() << " bit)";
+		}
+
+		_tvFile << endl;
+	}
+
+	_tvFile << GeneratePreSignalCaptionString(_tvFileSettings, sigDecls.size());
+
+	// If specified, append the last header column indicating the start of the
+	// line-end comments.
+	if (_tvFileSettings.isEnableLineEndComments()) {
+		_tvFile << string(_tvFileSettings.getCommentSpaces() -
+				_tvFileSettings.getSignalDistance(), ' ');
+		_tvFile << _tvFileSettings.getCommentsColumnHeader() << endl;
+		_tvFile << GeneratePreSignalCaptionString(_tvFileSettings, sigDecls.size());
+		_tvFile << string(_tvFileSettings.getCommentSpaces() -
+				_tvFileSettings.getSignalDistance(), ' ');
+		_tvFile << _tvFileSettings.getColumnIndicator();
+	}
+	_tvFile << endl;
+}
+
+/**
+ * @brief Create the leading string for a certain signal.
+ *
+ * Create the leading string of a certain signal, which should be written into
+ * the signal caption of the test vector file (i.e., all the column indicators
+ * required in front of the actual signal name, which allow an easier alignment
+ * of the signal columns).
+ *
+ * @param _tvFileSettings The corresponding test vector file settings.
+ * @param _sigIndex The index of the signal for which the leading string should
+ *   be created.
+ * @return The created string in front of the actual signal name.
+ */
+string TVGenerator::GeneratePreSignalCaptionString(const TVFileSettings & _tvFileSettings,
+		const int _sigIndex)
+{
+	int offset 				= 0;
+	float widthDigits	= 0;
+	float logBase 		= 0;
+	stringstream ssResult;
+	SignalDeclaration currSigDecl;
+
+	const vector<SignalDeclaration> & sigDecls = _tvFileSettings.getTVDeclarations();
+
+	ssResult << _tvFileSettings.getCommentIndicator();
+
+	for (int i = 0; i < _sigIndex; ++i) {
+		currSigDecl = sigDecls[i];
+
+		offset = (i == 0) ?
+				_tvFileSettings.getCommentIndicator().length() :
+				_tvFileSettings.getColumnIndicator().length();
+
+		// Determine the number of digits required in the specified number base to
+		// represent the value of the current signal.
+		logBase 		= log(currSigDecl.GetPrintBase()) / log(2);
+		widthDigits = ceil((float)currSigDecl.GetWidth()/ logBase);
+
+		ssResult << string(widthDigits - offset, ' ');
+		ssResult << string(_tvFileSettings.getSignalDistance(), ' ');
+
+		if (_sigIndex > 1 && i!= _sigIndex-1) {
+			ssResult << _tvFileSettings.getColumnIndicator();
+		}
+	}
+	return ssResult.str();
+}
+
 
 
 // ****************************************************************************

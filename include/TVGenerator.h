@@ -83,6 +83,9 @@ private:
 			string _line, string _comment);
 	void WriteTVCommentLine(ofstream & _tvFile, TVFileSettings & _tvFileSettings,
 			string _comment);
+	void WriteSignalCaptions(ofstream & _tvFile, TVFileSettings & _tvFileSettings);
+	string GeneratePreSignalCaptionString(const TVFileSettings & _tvFileSettings,
+			const int _sigIndex);
 
 public:
 	// **************************************************************************

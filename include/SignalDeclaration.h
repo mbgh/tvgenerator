@@ -49,6 +49,7 @@ private:
   string name;
   int width;
   int printBase;
+  bool appendWidthInCaption_;
 
   void init();
 
@@ -59,12 +60,17 @@ public:
   SignalDeclaration();
   SignalDeclaration(string _name, int _width);
   SignalDeclaration(string _name, int _width, int _printBase);
+  SignalDeclaration(const string _name, const int _width, const int _printBase,
+  		const bool _appendWidthInCaption);
   virtual ~SignalDeclaration();
 
   // **************************************************************************
   // Getter/Setter
   // **************************************************************************
   int GetPrintBase() { return printBase; };
+  int GetWidth() const { return width; };
+  string GetName() const { return name; };
+  bool IsAppendWidthInCaption() const { return appendWidthInCaption_; };
 };
 
 #endif /* TVDECLARATION_H_ */
