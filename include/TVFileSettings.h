@@ -23,7 +23,7 @@
  * @author Michael Muehlberghuber (mbgh,michmueh)
  * @date 21 August 2014
  * @brief A class for setting the properties of a test vector file.
- * @version 1.0
+ * @version 0.1
  *
  * This file provides a class for setting the properties of a test vector file,
  * used within the TVGenerator class.
@@ -44,7 +44,7 @@ using namespace std;
  * @author Michael Muehlberghuber (mbgh,michmueh)
  * @date 21 August 2014
  * @brief Test vector file settings.
- * @version 1.0
+ * @version 0.1
  */
 class TVFileSettings {
 

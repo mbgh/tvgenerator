@@ -23,7 +23,7 @@
  * @author Michael Muehlberghuber (mbgh,michmueh)
  * @date 21 August 2014
  * @brief Contains a class for declaration of signals.
- * @version 1.0
+ * @version 0.1
  */
 
 #ifndef TVDECLARATION_H_
@@ -38,7 +38,7 @@ using namespace std;
  * @author Michael Muehlberghuber (mbgh,michmueh)
  * @date 21 August 2014
  * @brief Signal declaration class.
- * @version 1.0
+ * @version 0.1
  */
 class SignalDeclaration {
 

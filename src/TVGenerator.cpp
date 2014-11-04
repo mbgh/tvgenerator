@@ -23,7 +23,7 @@
  * @author Michael Muehlberghuber (mbgh,michmueh)
  * @date 21 August 2014
  * @brief A test vector file generator for hardware designs.
- * @version 1.0
+ * @version 0.1
  *
  * This file provides the implementation of a test vector file generator for
  * hardware designs. It is intended to create nicely formated files (incl.

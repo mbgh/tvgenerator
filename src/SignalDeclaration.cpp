@@ -23,7 +23,7 @@
  * @author Michael Muehlberghuber (mbgh,michmueh)
  * @date 21 August 2014
  * @brief Contains the class implementation of signal declarations.
- * @version 1.0
+ * @version 0.1
  */
 
 #include "SignalDeclaration.h"
