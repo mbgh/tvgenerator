@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">TVGenerator
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">0.1</span>
    </div>
   </td>
  </tr>
@@ -124,6 +124,15 @@ Public Member Functions</h2></td></tr>
 virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTVGenerator.html#a4cece59e9c0450520b95781441873b8b">~TVGenerator</a> ()</td></tr>
 <tr class="memdesc:a4cece59e9c0450520b95781441873b8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br/></td></tr>
 <tr class="separator:a4cece59e9c0450520b95781441873b8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08bc1ad8716b43a464ab04bdd63cc148"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a08bc1ad8716b43a464ab04bdd63cc148"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>GetTVCount</b> () const </td></tr>
+<tr class="separator:a08bc1ad8716b43a464ab04bdd63cc148"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67716317757fa1015bc7f38aea5def57"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a67716317757fa1015bc7f38aea5def57"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>GetStimuliCount</b> () const </td></tr>
+<tr class="separator:a67716317757fa1015bc7f38aea5def57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebd3b7ea6fca73ddbf3e05aecea09800"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aebd3b7ea6fca73ddbf3e05aecea09800"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>GetExpRspCount</b> () const </td></tr>
+<tr class="separator:aebd3b7ea6fca73ddbf3e05aecea09800"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa3e40b268b653e5ffc7d38f85db4f37f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTVGenerator.html#aa3e40b268b653e5ffc7d38f85db4f37f">Initialize</a> (<a class="el" href="classTVFileSettings.html">TVFileSettings</a> _tvFileSettings)</td></tr>
 <tr class="memdesc:aa3e40b268b653e5ffc7d38f85db4f37f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the <a class="el" href="classTVGenerator.html" title="Test vector file generator for hardware designs. ">TVGenerator</a> using a single settings object.  <a href="#aa3e40b268b653e5ffc7d38f85db4f37f">More...</a><br/></td></tr>
 <tr class="separator:aa3e40b268b653e5ffc7d38f85db4f37f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -136,6 +145,12 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 <tr class="memitem:a2b0f65ad41e07e99534bbc3a87bdd639"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTVGenerator.html#a2b0f65ad41e07e99534bbc3a87bdd639">WriteTestVectorLine</a> (vector&lt; StdLogicVector &gt; _signalValues, string _comment)</td></tr>
 <tr class="memdesc:a2b0f65ad41e07e99534bbc3a87bdd639"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write a single test vector line to the test vector file.  <a href="#a2b0f65ad41e07e99534bbc3a87bdd639">More...</a><br/></td></tr>
 <tr class="separator:a2b0f65ad41e07e99534bbc3a87bdd639"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6028307e2f6d92a013935574911dec2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTVGenerator.html#ac6028307e2f6d92a013935574911dec2">WriteStimuliLine</a> (vector&lt; StdLogicVector &gt; &amp;_stimuliValues, string _comment)</td></tr>
+<tr class="memdesc:ac6028307e2f6d92a013935574911dec2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write a single stimuli to the stimuli file.  <a href="#ac6028307e2f6d92a013935574911dec2">More...</a><br/></td></tr>
+<tr class="separator:ac6028307e2f6d92a013935574911dec2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeaf8bc82bc1208467402f94cf7853e81"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTVGenerator.html#aeaf8bc82bc1208467402f94cf7853e81">WriteExpRspLine</a> (vector&lt; StdLogicVector &gt; &amp;_expRspValues, string _comment)</td></tr>
+<tr class="memdesc:aeaf8bc82bc1208467402f94cf7853e81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write an expected response to the expected responses file.  <a href="#aeaf8bc82bc1208467402f94cf7853e81">More...</a><br/></td></tr>
+<tr class="separator:aeaf8bc82bc1208467402f94cf7853e81"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad000a3c504150b2538feb3ddd9d5c584"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTVGenerator.html#ad000a3c504150b2538feb3ddd9d5c584">WriteArbitraryTVLine</a> (string _line)</td></tr>
 <tr class="memdesc:ad000a3c504150b2538feb3ddd9d5c584"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write an arbitrary line to the common test vector file.  <a href="#ad000a3c504150b2538feb3ddd9d5c584">More...</a><br/></td></tr>
 <tr class="separator:ad000a3c504150b2538feb3ddd9d5c584"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -168,7 +183,7 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 <div class="textblock"><p>Test vector file generator for hardware designs. </p>
 <dl class="section author"><dt>Author</dt><dd>Michael Muehlberghuber (mbgh,michmueh) </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>21 August 2014 </dd></dl>
-<dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>0.1 </dd></dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="ab348f68b0a372a201578f766bd6e4327"></a>
 <div class="memitem">
@@ -450,6 +465,42 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 
 </div>
 </div>
+<a class="anchor" id="aeaf8bc82bc1208467402f94cf7853e81"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int TVGenerator::WriteExpRspLine </td>
+          <td>(</td>
+          <td class="paramtype">vector&lt; StdLogicVector &gt; &amp;&#160;</td>
+          <td class="paramname"><em>_expRspValues</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>_comment</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Write an expected response to the expected responses file. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_expRspValues</td><td>The values of the expected response signals to be written. </td></tr>
+    <tr><td class="paramname">_comment</td><td>The comment to be attached to the end of the expected response file. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>0 when successfully. Throws an exception otherwise. </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="af66161053a3c1e3d5d8accfedec3956f"></a>
 <div class="memitem">
 <div class="memproto">
@@ -471,6 +522,42 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a class="anchor" id="ac6028307e2f6d92a013935574911dec2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int TVGenerator::WriteStimuliLine </td>
+          <td>(</td>
+          <td class="paramtype">vector&lt; StdLogicVector &gt; &amp;&#160;</td>
+          <td class="paramname"><em>_stimuliValues</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>_comment</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Write a single stimuli to the stimuli file. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_stimuliValues</td><td>The values of the stimuli signals to be written. </td></tr>
+    <tr><td class="paramname">_comment</td><td>The comment to be attached at the end of the stimuli line. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>0 when successfully. Throws an exception otherwise. </dd></dl>
 
 </div>
 </div>
@@ -535,8 +622,8 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>/usr/ela/home/michmueh/repos/git/tvgenerator/include/<a class="el" href="TVGenerator_8h_source.html">TVGenerator.h</a></li>
-<li>/usr/ela/home/michmueh/repos/git/tvgenerator/src/<a class="el" href="TVGenerator_8cpp.html">TVGenerator.cpp</a></li>
+<li>/home/michmueh/repos/git/tvgenerator/include/<a class="el" href="TVGenerator_8h_source.html">TVGenerator.h</a></li>
+<li>/home/michmueh/repos/git/tvgenerator/src/<a class="el" href="TVGenerator_8cpp.html">TVGenerator.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

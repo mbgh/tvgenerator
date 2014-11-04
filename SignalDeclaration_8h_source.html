@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>TVGenerator: /usr/ela/home/michmueh/repos/git/tvgenerator/include/SignalDeclaration.h Source File</title>
+<title>TVGenerator: /home/michmueh/repos/git/tvgenerator/include/SignalDeclaration.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">TVGenerator
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">0.1</span>
    </div>
   </td>
  </tr>
@@ -140,25 +140,31 @@ $(document).ready(function(){initNavTree('SignalDeclaration_8h_source.html','');
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <span class="keywordtype">string</span> name;</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  <span class="keywordtype">int</span> width;</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <span class="keywordtype">int</span> printBase;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <span class="keywordtype">void</span> init();</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <span class="comment">// **************************************************************************</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <span class="comment">// Constructors/Destructors</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  <span class="comment">// **************************************************************************</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <a class="code" href="classSignalDeclaration.html">SignalDeclaration</a>();</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <a class="code" href="classSignalDeclaration.html">SignalDeclaration</a>(<span class="keywordtype">string</span> _name, <span class="keywordtype">int</span> _width);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <a class="code" href="classSignalDeclaration.html">SignalDeclaration</a>(<span class="keywordtype">string</span> _name, <span class="keywordtype">int</span> _width, <span class="keywordtype">int</span> _printBase);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <span class="keyword">virtual</span> ~<a class="code" href="classSignalDeclaration.html">SignalDeclaration</a>();</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  <span class="comment">// **************************************************************************</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <span class="comment">// Getter/Setter</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  <span class="comment">// **************************************************************************</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <span class="keywordtype">int</span> GetPrintBase() { <span class="keywordflow">return</span> printBase; };</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;};</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* TVDECLARATION_H_ */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <span class="keywordtype">bool</span> appendWidthInCaption_;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <span class="keywordtype">void</span> init();</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <span class="comment">// **************************************************************************</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  <span class="comment">// Constructors/Destructors</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <span class="comment">// **************************************************************************</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <a class="code" href="classSignalDeclaration.html">SignalDeclaration</a>();</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <a class="code" href="classSignalDeclaration.html">SignalDeclaration</a>(<span class="keywordtype">string</span> _name, <span class="keywordtype">int</span> _width);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <a class="code" href="classSignalDeclaration.html">SignalDeclaration</a>(<span class="keywordtype">string</span> _name, <span class="keywordtype">int</span> _width, <span class="keywordtype">int</span> _printBase);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <a class="code" href="classSignalDeclaration.html">SignalDeclaration</a>(<span class="keyword">const</span> <span class="keywordtype">string</span> _name, <span class="keyword">const</span> <span class="keywordtype">int</span> _width, <span class="keyword">const</span> <span class="keywordtype">int</span> _printBase,</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">bool</span> _appendWidthInCaption);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <span class="keyword">virtual</span> ~<a class="code" href="classSignalDeclaration.html">SignalDeclaration</a>();</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <span class="comment">// **************************************************************************</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  <span class="comment">// Getter/Setter</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  <span class="comment">// **************************************************************************</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  <span class="keywordtype">int</span> GetPrintBase() { <span class="keywordflow">return</span> printBase; };</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  <span class="keywordtype">int</span> GetWidth()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> width; };</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <span class="keywordtype">string</span> GetName()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> name; };</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  <span class="keywordtype">bool</span> IsAppendWidthInCaption()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> appendWidthInCaption_; };</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;};</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* TVDECLARATION_H_ */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="classSignalDeclaration_html"><div class="ttname"><a href="classSignalDeclaration.html">SignalDeclaration</a></div><div class="ttdoc">Signal declaration class. </div><div class="ttdef"><b>Definition:</b> SignalDeclaration.h:43</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
