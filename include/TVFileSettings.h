@@ -63,7 +63,8 @@ private:
   bool enableLineEndComments_;  // Enable/Disable comments at end of line.
   bool enablePreLineComments_;  // Enable/Disable comments right before line.
   string commentsColumnHeader_;	// The string indicating a comment at the end of a line.
-  int signalCaptionInterval_;    // The interval after which the signal caption header is printed again.
+  int signalCaptionInterval_;   // The interval after which the signal caption header is printed again.
+  char dontCareIdentifier_;			// The character to be used in order to identify don't care values.
 
   vector<SignalDeclaration> tvDeclarations_;
 
@@ -104,6 +105,7 @@ public:
   bool isEnablePreLineComments() const { return enablePreLineComments_; };
   string getCommentsColumnHeader() const { return commentsColumnHeader_; };
   int getSignalCaptionInterval() const { return signalCaptionInterval_; };
+  char getDontCareIdentifier() const { return dontCareIdentifier_; };
 
   vector<SignalDeclaration> getTVDeclarations() const { return tvDeclarations_; };
 

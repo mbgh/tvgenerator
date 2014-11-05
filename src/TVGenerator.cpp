@@ -147,9 +147,16 @@ int TVGenerator::WriteTVLine(ofstream & _tvFile, TVFileSettings & _fileSettings,
 	}
 
 	for (size_t sig = 0; sig < _signalValues.size(); ++sig) {
+
 		string baseString = _signalValues[sig].ToString(
 				_fileSettings.getTVDeclarations()[sig].GetPrintBase(), true);
-		_tvFile << baseString;
+
+		// If the current signal is set to "don't care", print the respective don't
+		// care characters into the test vector file. Otherwise print the actual
+		// value.
+		_tvFile << (_signalValues[sig].isDontCare() ?
+				string(baseString.length(), _fileSettings.getDontCareIdentifier()) : baseString);
+
 		if (sig != _signalValues.size() - 1) {
 			_tvFile << " ";
 		} else {
