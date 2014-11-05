@@ -151,59 +151,61 @@ $(document).ready(function(){initNavTree('TVFileSettings_8h_source.html','');});
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <span class="keywordtype">bool</span> enableLineEndComments_;  <span class="comment">// Enable/Disable comments at end of line.</span></div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  <span class="keywordtype">bool</span> enablePreLineComments_;  <span class="comment">// Enable/Disable comments right before line.</span></div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <span class="keywordtype">string</span> commentsColumnHeader_; <span class="comment">// The string indicating a comment at the end of a line.</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  <span class="keywordtype">int</span> signalCaptionInterval_;    <span class="comment">// The interval after which the signal caption header is printed again.</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  vector&lt;SignalDeclaration&gt; tvDeclarations_;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  <span class="comment">// **************************************************************************</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <span class="comment">// Constructors/Destructors</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  <span class="comment">// **************************************************************************</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  <a class="code" href="classTVFileSettings.html">TVFileSettings</a>();</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  <a class="code" href="classTVFileSettings.html">TVFileSettings</a>(<span class="keywordtype">string</span> _filePath, <span class="keywordtype">string</span> _author, <span class="keywordtype">string</span> _content,</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;      <span class="keywordtype">string</span> _projectName);</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  <a class="code" href="classTVFileSettings.html">TVFileSettings</a>(<span class="keywordtype">string</span> _filePath, <span class="keywordtype">string</span> _author, <span class="keywordtype">string</span> _content,</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;      <span class="keywordtype">string</span> _projectName, <span class="keyword">const</span> <span class="keywordtype">string</span> _commentIndicator,</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">string</span> _columnIndicator, <span class="keyword">const</span> <span class="keywordtype">int</span> _commentSpaces);</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  <span class="keyword">virtual</span> ~<a class="code" href="classTVFileSettings.html">TVFileSettings</a>();</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  <span class="comment">// **************************************************************************</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  <span class="comment">// Getter/Setter</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  <span class="comment">// **************************************************************************</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  <span class="keywordtype">void</span> setFilePath(<span class="keyword">const</span> <span class="keywordtype">string</span> _fileName) { filePath_ = _fileName; };</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  <span class="keywordtype">void</span> setProjectName(<span class="keyword">const</span> <span class="keywordtype">string</span> _projectName) { projectName_ = _projectName; };</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  <span class="keywordtype">void</span> setContent(<span class="keyword">const</span> <span class="keywordtype">string</span> _content) { content_ = _content; };</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  <span class="keywordtype">void</span> setAuthor(<span class="keyword">const</span> <span class="keywordtype">string</span> _author) { author_ = _author; };</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  <span class="keywordtype">void</span> enableLineEndComments(<span class="keyword">const</span> <span class="keywordtype">bool</span> _enableLineEndComments) {</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    enableLineEndComments_ = _enableLineEndComments; };</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  <span class="keywordtype">void</span> enablePreLineComments(<span class="keyword">const</span> <span class="keywordtype">bool</span> _enablePreLineComments) {</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    enablePreLineComments_ = _enablePreLineComments; };</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  <span class="keywordtype">void</span> setTVDeclarations(<span class="keyword">const</span> vector&lt;SignalDeclaration&gt; &amp; _tvDeclarations) {</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    tvDeclarations_ = _tvDeclarations; };</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;  <span class="keywordtype">string</span> getFilePath()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> filePath_; };</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  <span class="keywordtype">string</span> getProjectName()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> projectName_; };</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  <span class="keywordtype">string</span> getContent()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> content_; };</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  <span class="keywordtype">string</span> getAuthor()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> author_; };</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  <span class="keywordtype">string</span> getCommentIndicator()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> commentIndicator_; };</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  <span class="keywordtype">string</span> getColumnIndicator()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> columnIndicator_; };</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  <span class="keywordtype">int</span> getSignalDistance()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> signalDistance_; };</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  <span class="keywordtype">int</span> getCommentSpaces()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> commentSpaces_; };</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  <span class="keywordtype">bool</span> isEnableLineEndComments()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> enableLineEndComments_; };</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  <span class="keywordtype">bool</span> isEnablePreLineComments()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> enablePreLineComments_; };</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  <span class="keywordtype">string</span> getCommentsColumnHeader()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> commentsColumnHeader_; };</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  <span class="keywordtype">int</span> getSignalCaptionInterval()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> signalCaptionInterval_; };</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;  vector&lt;SignalDeclaration&gt; getTVDeclarations()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> tvDeclarations_; };</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  <span class="keywordtype">int</span> signalCaptionInterval_;   <span class="comment">// The interval after which the signal caption header is printed again.</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <span class="keywordtype">char</span> dontCareIdentifier_;                     <span class="comment">// The character to be used in order to identify don&#39;t care values.</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  vector&lt;SignalDeclaration&gt; tvDeclarations_;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <span class="comment">// **************************************************************************</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  <span class="comment">// Constructors/Destructors</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  <span class="comment">// **************************************************************************</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  <a class="code" href="classTVFileSettings.html">TVFileSettings</a>();</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  <a class="code" href="classTVFileSettings.html">TVFileSettings</a>(<span class="keywordtype">string</span> _filePath, <span class="keywordtype">string</span> _author, <span class="keywordtype">string</span> _content,</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;      <span class="keywordtype">string</span> _projectName);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  <a class="code" href="classTVFileSettings.html">TVFileSettings</a>(<span class="keywordtype">string</span> _filePath, <span class="keywordtype">string</span> _author, <span class="keywordtype">string</span> _content,</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;      <span class="keywordtype">string</span> _projectName, <span class="keyword">const</span> <span class="keywordtype">string</span> _commentIndicator,</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">string</span> _columnIndicator, <span class="keyword">const</span> <span class="keywordtype">int</span> _commentSpaces);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  <span class="keyword">virtual</span> ~<a class="code" href="classTVFileSettings.html">TVFileSettings</a>();</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  <span class="comment">// **************************************************************************</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  <span class="comment">// Getter/Setter</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  <span class="comment">// **************************************************************************</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  <span class="keywordtype">void</span> setFilePath(<span class="keyword">const</span> <span class="keywordtype">string</span> _fileName) { filePath_ = _fileName; };</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  <span class="keywordtype">void</span> setProjectName(<span class="keyword">const</span> <span class="keywordtype">string</span> _projectName) { projectName_ = _projectName; };</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  <span class="keywordtype">void</span> setContent(<span class="keyword">const</span> <span class="keywordtype">string</span> _content) { content_ = _content; };</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  <span class="keywordtype">void</span> setAuthor(<span class="keyword">const</span> <span class="keywordtype">string</span> _author) { author_ = _author; };</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  <span class="keywordtype">void</span> enableLineEndComments(<span class="keyword">const</span> <span class="keywordtype">bool</span> _enableLineEndComments) {</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    enableLineEndComments_ = _enableLineEndComments; };</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  <span class="keywordtype">void</span> enablePreLineComments(<span class="keyword">const</span> <span class="keywordtype">bool</span> _enablePreLineComments) {</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    enablePreLineComments_ = _enablePreLineComments; };</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  <span class="keywordtype">void</span> setTVDeclarations(<span class="keyword">const</span> vector&lt;SignalDeclaration&gt; &amp; _tvDeclarations) {</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    tvDeclarations_ = _tvDeclarations; };</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  <span class="keywordtype">string</span> getFilePath()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> filePath_; };</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  <span class="keywordtype">string</span> getProjectName()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> projectName_; };</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  <span class="keywordtype">string</span> getContent()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> content_; };</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  <span class="keywordtype">string</span> getAuthor()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> author_; };</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  <span class="keywordtype">string</span> getCommentIndicator()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> commentIndicator_; };</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  <span class="keywordtype">string</span> getColumnIndicator()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> columnIndicator_; };</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  <span class="keywordtype">int</span> getSignalDistance()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> signalDistance_; };</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  <span class="keywordtype">int</span> getCommentSpaces()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> commentSpaces_; };</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  <span class="keywordtype">bool</span> isEnableLineEndComments()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> enableLineEndComments_; };</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  <span class="keywordtype">bool</span> isEnablePreLineComments()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> enablePreLineComments_; };</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  <span class="keywordtype">string</span> getCommentsColumnHeader()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> commentsColumnHeader_; };</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;  <span class="keywordtype">int</span> getSignalCaptionInterval()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> signalCaptionInterval_; };</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;  <span class="keywordtype">char</span> getDontCareIdentifier()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> dontCareIdentifier_; };</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;  <span class="comment">// **************************************************************************</span></div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  <span class="comment">// Public methods</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;  vector&lt;SignalDeclaration&gt; getTVDeclarations()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> tvDeclarations_; };</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;  <span class="comment">// **************************************************************************</span></div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;  <span class="keywordtype">void</span> AddSignal(<span class="keyword">const</span> <a class="code" href="classSignalDeclaration.html">SignalDeclaration</a> &amp; _tvDeclaration);</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;};</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;  <span class="comment">// Public methods</span></div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;  <span class="comment">// **************************************************************************</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;  <span class="keywordtype">void</span> AddSignal(<span class="keyword">const</span> <a class="code" href="classSignalDeclaration.html">SignalDeclaration</a> &amp; _tvDeclaration);</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* TVFILESETTINGS_H_ */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;};</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* TVFILESETTINGS_H_ */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="classSignalDeclaration_html"><div class="ttname"><a href="classSignalDeclaration.html">SignalDeclaration</a></div><div class="ttdoc">Signal declaration class. </div><div class="ttdef"><b>Definition:</b> SignalDeclaration.h:43</div></div>
 <div class="ttc" id="classTVFileSettings_html"><div class="ttname"><a href="classTVFileSettings.html">TVFileSettings</a></div><div class="ttdoc">Test vector file settings. </div><div class="ttdef"><b>Definition:</b> TVFileSettings.h:49</div></div>
 <div class="ttc" id="SignalDeclaration_8h_html"><div class="ttname"><a href="SignalDeclaration_8h.html">SignalDeclaration.h</a></div><div class="ttdoc">Contains a class for declaration of signals. </div></div>

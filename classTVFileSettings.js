@@ -13,6 +13,7 @@ var classTVFileSettings =
     [ "getCommentsColumnHeader", "classTVFileSettings.html#a598f12c9b77330b57e49310bc718f75e", null ],
     [ "getCommentSpaces", "classTVFileSettings.html#a45a9f1f67e112bb463c8ca2dae6a4475", null ],
     [ "getContent", "classTVFileSettings.html#a0f7abec8e779a2b535a2d90b36d78c41", null ],
+    [ "getDontCareIdentifier", "classTVFileSettings.html#a30c430767ed026ab7b001753106ec58f", null ],
     [ "getFilePath", "classTVFileSettings.html#aea84893c8ab6c3c7728b9fd8b05d2e20", null ],
     [ "getProjectName", "classTVFileSettings.html#a219248e74d92e33570b08fafb94ae939", null ],
     [ "getSignalCaptionInterval", "classTVFileSettings.html#a3a7cb2a24f7323d2a3f0e2c7e375ae5c", null ],
